@@ -18,7 +18,11 @@
 # deps & build
 node_modules/
 dist/
+dist-playground/
 *.tsbuildinfo
+
+# vercel
+.vercel/
 
 # playwright mcp artifacts
 .playwright-mcp/

@@ -45,6 +45,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:playground": "vite build --config vite.playground.config.ts",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
