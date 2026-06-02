@@ -45,6 +45,7 @@ export default defineConfig(({ command }) => {
       alias: {
         'liga-ds/styles.css': resolve(root, 'src/styles.css'),
         'liga-ds': resolve(root, 'src/index.ts'),
+        '@liga360/icons': resolve(root, 'icons/src/index.ts'),
       },
     },
   };

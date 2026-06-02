@@ -33,6 +33,41 @@ import {
   type ButtonVariant,
   type ButtonSize,
 } from 'liga-ds';
+import {
+  IconSearch,
+  IconAdd,
+  IconEdit,
+  IconTrash,
+  IconDownload,
+  IconUpload,
+  IconSettings,
+  IconCalendar,
+  IconBookmark,
+  IconCheck,
+  IconFolder,
+  IconLock,
+  IconEye,
+  IconShare,
+  IconCopy,
+  IconFilters,
+  IconInfo,
+  IconSend,
+  IconTag,
+  IconChevronRight,
+  IconChevronDown,
+  IconStarFavoriteFilled,
+  IconClose,
+  IconUserEdit,
+} from '@liga360/icons';
+
+const SAMPLE_ICONS = [
+  ['IconSearch', IconSearch], ['IconAdd', IconAdd], ['IconEdit', IconEdit], ['IconTrash', IconTrash],
+  ['IconDownload', IconDownload], ['IconUpload', IconUpload], ['IconSettings', IconSettings], ['IconCalendar', IconCalendar],
+  ['IconBookmark', IconBookmark], ['IconCheck', IconCheck], ['IconFolder', IconFolder], ['IconLock', IconLock],
+  ['IconEye', IconEye], ['IconShare', IconShare], ['IconCopy', IconCopy], ['IconFilters', IconFilters],
+  ['IconInfo', IconInfo], ['IconSend', IconSend], ['IconTag', IconTag], ['IconChevronRight', IconChevronRight],
+  ['IconChevronDown', IconChevronDown], ['IconStarFavoriteFilled', IconStarFavoriteFilled], ['IconClose', IconClose], ['IconUserEdit', IconUserEdit],
+] as const;
 
 const PlusIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -451,6 +486,42 @@ export function App() {
           </Menu>
           <div style={{ width: 220 }}>
             <DatePicker aria-label="Date" defaultValue={new Date(2026, 5, 2)} />
+          </div>
+        </div>
+      </section>
+
+      <section style={{ marginTop: 'var(--space-800)' }}>
+        <Heading level={3} style={{ marginBottom: 'var(--space-200)' }}>
+          @liga360/icons (Liga360) — 459 icons
+        </Heading>
+        <Text color="subtle">Sample below. Icons are 1em + currentColor — they inherit size & brand color.</Text>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(96px, 1fr))',
+            gap: 'var(--space-200)',
+            margin: 'var(--space-300) 0',
+            fontSize: 24,
+            color: 'var(--text-default)',
+          }}
+        >
+          {SAMPLE_ICONS.map(([name, Ic]) => (
+            <div key={name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+              <Ic />
+              <code style={{ fontSize: 10, color: 'var(--text-subtlest)', textAlign: 'center' }}>{name}</code>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ display: 'flex', gap: 'var(--space-400)', alignItems: 'center', flexWrap: 'wrap' }}>
+          <span style={{ fontSize: 28, color: 'var(--text-accent)' }}><IconStarFavoriteFilled /></span>
+          <span style={{ fontSize: 28, color: 'var(--text-danger)' }}><IconTrash /></span>
+          <span style={{ fontSize: 28, color: 'var(--text-success)' }}><IconCheck /></span>
+          <Button leftIcon={<IconAdd />}>Add document</Button>
+          <Button variant="secondary" leftIcon={<IconDownload />}>Export</Button>
+          <div style={{ width: 240 }}>
+            <Input leftIcon={<IconSearch />} placeholder="Search with a real icon" />
           </div>
         </div>
       </section>

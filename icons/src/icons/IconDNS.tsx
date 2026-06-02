@@ -1,0 +1,14 @@
+// AUTO-GENERATED from DNS.svg — do not edit by hand.
+import type { SVGProps } from "react";
+import { Ref, forwardRef } from "react";
+interface SVGRProps {
+  title?: string;
+  titleId?: string;
+}
+const IconDNS = ({
+  title,
+  titleId,
+  ...props
+}: SVGProps<SVGSVGElement> & SVGRProps, ref: Ref<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="1em" height="1em" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill="currentColor" d="M7.5 6q-.625 0-1.062.438A1.45 1.45 0 0 0 6 7.5q0 .624.438 1.063Q6.874 9 7.5 9q.624 0 1.063-.437Q9 8.124 9 7.5t-.437-1.062A1.45 1.45 0 0 0 7.5 6m0 10q-.625 0-1.062.438A1.45 1.45 0 0 0 6 17.5q0 .625.438 1.063Q6.874 19 7.5 19q.624 0 1.063-.437Q9 18.125 9 17.5t-.437-1.062A1.45 1.45 0 0 0 7.5 16M4 3h16q.424 0 .712.288Q21 3.575 21 4v7q0 .424-.288.713A.97.97 0 0 1 20 12H4a.97.97 0 0 1-.712-.287A.97.97 0 0 1 3 11V4q0-.424.288-.712A.97.97 0 0 1 4 3m1 2v5h14V5zm-1 8h16q.424 0 .712.287.288.288.288.713v7q0 .424-.288.712A.97.97 0 0 1 20 22H4a.97.97 0 0 1-.712-.288A.97.97 0 0 1 3 21v-7q0-.424.288-.713A.97.97 0 0 1 4 13m1 2v5h14v-5z" /></svg>;
+const ForwardRef = forwardRef(IconDNS);
+export default ForwardRef;

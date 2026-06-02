@@ -1,0 +1,14 @@
+// AUTO-GENERATED from SearchUser.svg — do not edit by hand.
+import type { SVGProps } from "react";
+import { Ref, forwardRef } from "react";
+interface SVGRProps {
+  title?: string;
+  titleId?: string;
+}
+const IconSearchUser = ({
+  title,
+  titleId,
+  ...props
+}: SVGProps<SVGSVGElement> & SVGRProps, ref: Ref<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="1em" height="1em" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill="currentColor" d="M11 12q-1.65 0-2.825-1.175T7 8t1.175-2.825T11 4t2.825 1.175T15 8t-1.175 2.825T11 12m0-2q.825 0 1.412-.588Q13 8.826 13 8q0-.824-.588-1.412A1.93 1.93 0 0 0 11 6q-.825 0-1.412.588A1.93 1.93 0 0 0 9 8q0 .825.588 1.412Q10.175 10 11 10m11.1 13.5-3.2-3.2q-.525.3-1.125.5T16.5 21q-1.875 0-3.187-1.312Q12 18.375 12 16.5t1.313-3.187T16.5 12t3.188 1.313Q21 14.624 21 16.5q0 .675-.2 1.275t-.5 1.125l3.2 3.2zM16.5 19q1.05 0 1.775-.725T19 16.5t-.725-1.775T16.5 14t-1.775.725T14 16.5t.725 1.775T16.5 19M3 20v-2.775q0-.85.425-1.575t1.175-1.1q1.275-.65 2.875-1.1t3.55-.45q-.3.45-.513.963a6.6 6.6 0 0 0-.337 1.062q-1.5.125-2.675.512-1.175.388-1.975.813a.9.9 0 0 0-.388.362Q5 16.95 5 17.226V18h5.175q.125.55.337 1.05t.513.95z" /></svg>;
+const ForwardRef = forwardRef(IconSearchUser);
+export default ForwardRef;

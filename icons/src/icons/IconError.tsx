@@ -1,0 +1,14 @@
+// AUTO-GENERATED from Error.svg — do not edit by hand.
+import type { SVGProps } from "react";
+import { Ref, forwardRef } from "react";
+interface SVGRProps {
+  title?: string;
+  titleId?: string;
+}
+const IconError = ({
+  title,
+  titleId,
+  ...props
+}: SVGProps<SVGSVGElement> & SVGRProps, ref: Ref<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="1em" height="1em" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill="currentColor" d="M12 22.025q-.4 0-.762-.15a2.3 2.3 0 0 1-.663-.425L2.55 13.425q-.275-.3-.425-.663-.15-.361-.15-.762 0-.4.15-.775t.425-.65l8.025-8.025q.3-.3.663-.438.361-.137.762-.137.4 0 .775.137.375.138.65.438l8.025 8.025q.3.275.438.65a2.23 2.23 0 0 1 0 1.537 1.9 1.9 0 0 1-.438.663l-8.025 8.025q-.275.275-.65.425t-.775.15m0-2L20.025 12 12 3.975 3.975 12zM11 13h2V7h-2zm1 3q.424 0 .713-.287A.97.97 0 0 0 13 15a.97.97 0 0 0-.287-.713A.97.97 0 0 0 12 14a.97.97 0 0 0-.712.287A.97.97 0 0 0 11 15q0 .424.288.713.287.287.712.287" /></svg>;
+const ForwardRef = forwardRef(IconError);
+export default ForwardRef;
