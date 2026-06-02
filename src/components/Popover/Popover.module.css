@@ -1,0 +1,13 @@
+.content {
+  z-index: 1400;
+  min-width: 180px;
+  max-width: min(360px, calc(100vw - 16px));
+  padding: var(--space-200);
+  background-color: var(--cntnr-bg-primary-default);
+  border: 1px solid var(--dropdown-stroke-default);
+  border-radius: var(--cntnr-corner-big);
+  box-shadow: 0 10px 30px rgb(15 23 42 / 0.12);
+  color: var(--text-default);
+  font-family: var(--liga-font-family);
+  outline: none;
+}

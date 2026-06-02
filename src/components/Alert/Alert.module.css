@@ -1,0 +1,73 @@
+.alert {
+  --_bg: var(--cntnr-bg-other-neutral);
+  --_border: var(--cntnr-border-default);
+  --_accent: var(--text-default);
+  display: flex;
+  gap: var(--space-150);
+  padding: var(--space-200);
+  border: 1px solid var(--_border);
+  border-radius: var(--cntnr-corner-normal);
+  background-color: var(--_bg);
+  color: var(--text-default);
+  font-family: var(--liga-font-family);
+}
+
+.tone-info { --_bg: var(--cntnr-bg-other-blue); --_border: var(--cntnr-border-info); --_accent: var(--text-information); }
+.tone-success { --_bg: var(--cntnr-bg-other-success); --_border: var(--cntnr-border-success); --_accent: var(--text-success); }
+.tone-warning { --_bg: var(--cntnr-bg-other-warning); --_border: var(--cntnr-border-warning); --_accent: var(--text-warning); }
+.tone-danger { --_bg: var(--cntnr-bg-other-danger-danger); --_border: var(--cntnr-border-error); --_accent: var(--text-danger); }
+.tone-neutral { --_bg: var(--cntnr-bg-other-neutral); --_border: var(--cntnr-border-default); --_accent: var(--text-default); }
+
+.icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  color: var(--_accent);
+}
+.icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-050);
+}
+.title {
+  color: var(--_accent);
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.15px;
+}
+.message {
+  color: var(--text-default);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.29px;
+}
+
+.close {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: -2px -2px 0 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--icon-subtle);
+  border-radius: var(--cntnr-corner-small);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+}
+.close:hover { opacity: 1; }
+.close:focus-visible { outline: 2px solid var(--color-primary-500); outline-offset: 1px; }
+.close svg { width: 12px; height: 12px; display: block; }

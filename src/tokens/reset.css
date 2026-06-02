@@ -1,0 +1,42 @@
+/* =====================================================================
+   Liga DS — minimal, polite reset.
+   Global box-sizing only (universally expected). All base typography /
+   color / background is scoped to .liga-root so the library never
+   restyles a consumer's whole page uninvited.
+   ===================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Base surface — apply to the app root or <body>: <body class="liga-root"> */
+.liga-root {
+  font-family: var(--liga-font-family);
+  font-size: var(--typo-sizes-h300); /* 14px — main body */
+  line-height: 16px;
+  color: var(--text-default);
+  background-color: var(--cntnr-bg-other-page-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  accent-color: var(--color-primary-500);
+}
+
+/* Visible, consistent focus for keyboard users across all Liga components. */
+:where(.liga-root) :focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.liga-root) *,
+  :where(.liga-root) *::before,
+  :where(.liga-root) *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

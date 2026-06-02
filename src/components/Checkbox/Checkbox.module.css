@@ -1,0 +1,86 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-100);
+  cursor: pointer;
+  font-family: var(--liga-font-family);
+}
+.root[data-disabled='true'] {
+  cursor: not-allowed;
+}
+
+/* visually hidden but focusable native input */
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+.box {
+  position: relative;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--checkbox-corner-checkbox-corner);
+  background-color: var(--cntnr-bg-primary-default);
+  border: 1px solid var(--color-neutral-solid-500);
+  color: var(--icon-alternative-active);
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.root:hover .input:not(:disabled):not(:checked):not(:indeterminate) ~ .box {
+  border-color: var(--checkbox-color-hover-checkbox);
+}
+.input:checked ~ .box,
+.input:indeterminate ~ .box {
+  background-color: var(--checkbox-color-default-checkbox);
+  border-color: var(--checkbox-color-default-checkbox);
+}
+.input:focus-visible ~ .box {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+.input:disabled ~ .box {
+  background-color: var(--cntnr-bg-primary-default);
+  border-color: var(--cntnr-border-disabled);
+}
+.input:disabled:checked ~ .box,
+.input:disabled:indeterminate ~ .box {
+  background-color: var(--btn-bg-primary-disable);
+  border-color: var(--btn-bg-primary-disable);
+}
+
+.check,
+.dash {
+  display: none;
+}
+.check {
+  width: 11px;
+  height: 8px;
+}
+.dash {
+  width: 9px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: currentColor;
+}
+.input:checked:not(:indeterminate) ~ .box .check {
+  display: block;
+}
+.input:indeterminate ~ .box .dash {
+  display: block;
+}
+
+.label {
+  color: var(--text-default);
+}
+.input:disabled ~ .label {
+  color: var(--text-disabled);
+}

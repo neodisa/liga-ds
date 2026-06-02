@@ -1,0 +1,78 @@
+{
+  "name": "liga-ds",
+  "version": "0.1.0",
+  "description": "Liga DS — a universal, accessible, production-grade React design system (Liga360 / United brands).",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "design-system",
+    "react",
+    "components",
+    "ui",
+    "accessibility",
+    "design-tokens",
+    "ligazakon"
+  ],
+  "author": "LigaZakon",
+  "homepage": "https://github.com/ligazakon/liga-ds#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ligazakon/liga-ds.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ligazakon/liga-ds/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/liga-ds.cjs",
+  "module": "./dist/liga-ds.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/liga-ds.js",
+      "require": "./dist/liga-ds.cjs"
+    },
+    "./styles.css": "./dist/liga-ds.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.16",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "axe-core": "^4.12.0",
+    "jsdom": "^29.1.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16",
+    "vite-plugin-dts": "^5.0.2",
+    "vitest": "^4.1.8"
+  },
+  "dependencies": {
+    "@floating-ui/react": "^0.27.19"
+  }
+}

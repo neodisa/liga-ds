@@ -1,0 +1,55 @@
+/* Liga DS — Badge / status pill. Shared tone+variant+size classes,
+   reused by Tag and Chips. Pill corner; status tokens. */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-050);
+  width: fit-content;
+  font-family: var(--liga-font-family);
+  border-radius: var(--cntnr-corner-infinity);
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.size-sm {
+  min-height: 18px;
+  padding: 0 var(--space-075);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.18px;
+}
+.size-md {
+  min-height: 24px;
+  padding: 0 var(--space-100);
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+}
+
+/* ---- solid (status/Filled) ---- */
+.tone-primary.solid { background-color: var(--status-filled-primary); color: var(--text-alternative); }
+.tone-success.solid { background-color: var(--status-filled-positive); color: var(--text-alternative); }
+.tone-danger.solid  { background-color: var(--status-filled-negative); color: var(--text-alternative); }
+.tone-warning.solid { background-color: var(--status-filled-warning); color: var(--text-alternative); }
+.tone-info.solid    { background-color: var(--status-filled-blue); color: var(--text-alternative); }
+.tone-neutral.solid { background-color: var(--status-filled-passive); color: var(--text-alternative); }
+
+/* ---- subtle (status/Trasperent) ---- */
+.tone-primary.subtle { background-color: var(--status-trasperent-primary); color: var(--text-accent); }
+.tone-success.subtle { background-color: var(--status-trasperent-positive); color: var(--text-success); }
+.tone-danger.subtle  { background-color: var(--status-trasperent-negative); color: var(--text-danger); }
+.tone-warning.subtle { background-color: var(--status-trasperent-warning); color: var(--text-warning); }
+.tone-info.subtle    { background-color: var(--status-trasperent-blue); color: var(--text-information); }
+.tone-neutral.subtle { background-color: var(--status-trasperent-passive); color: var(--text-default); }
+
+/* dot indicator (no label) */
+.dot {
+  width: 8px;
+  height: 8px;
+  min-height: 0;
+  padding: 0;
+  border-radius: var(--cntnr-corner-infinity);
+}
