@@ -37,12 +37,12 @@ export const TYPOGRAPHY_VARIANTS = [
   'h100-regular', 'h100-medium', 'h100-semibold', 'h100-caps',
   'h200-regular', 'h200-medium', 'h200-semibold', 'h200-caps',
   'h300-regular', 'h300-regular-paragraph', 'h300-medium', 'h300-bold', 'h300-caps', 'h300-cta',
-  'h400-regular', 'h400-regular-paragraph', 'h400-medium', 'h400-bold',
-  'h450-medium', 'h450-bold',
-  'h500-medium', 'h500-bold',
-  'h600-medium', 'h600-bold',
-  'h700-semibold',
-  'h800-medium',
+  'h400-regular', 'h400-regular-paragraph', 'h400-medium', 'h400-bold', 'h400-caps',
+  'h450-regular', 'h450-medium', 'h450-bold', 'h450-caps',
+  'h500-regular', 'h500-medium', 'h500-bold', 'h500-caps',
+  'h600-regular', 'h600-medium', 'h600-bold', 'h600-caps',
+  'h700-regular', 'h700-medium', 'h700-semibold', 'h700-bold', 'h700-caps',
+  'h800-regular', 'h800-medium', 'h800-bold', 'h800-caps',
 ] as const;
 export type TypographyVariant = (typeof TYPOGRAPHY_VARIANTS)[number];
 /** Maps a typography variant to its global utility class. */

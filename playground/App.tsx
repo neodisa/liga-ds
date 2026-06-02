@@ -99,6 +99,32 @@ const STATUS = [
   ['text-accent', 'accent'],
 ] as const;
 
+/* ---- full color-token inventory (matches Figma Primitives + Charts) ---- */
+const OTHER_FAMILIES: [string, string][] = [
+  ['Red', 'red'],
+  ['Orange red', 'orange-red'],
+  ['Orange', 'orange'],
+  ['Warm yellow', 'warm-yellow'],
+  ['Warm green', 'warm-green'],
+  ['Cool green', 'cool-green'],
+  ['Blue', 'blue'],
+];
+const OTHER_STEPS = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+const NEUTRAL_SOLID = [100, 125, 150, 200, 300, 350, 400, 450, 500, 600, 700, 800, 900, 1000];
+const NEUTRAL_ALPHA = [0, 100, 200, 300, 400, 500, 600, 700, 800, 850, 900];
+const DARK_SOLID = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+const DARK_ALPHA = [100, 200, 300, 400, 500, 600, 700, 800, 850, 900];
+const CHART_COLORS = Array.from({ length: 21 }, (_, i) => i + 1);
+const MONOCHROME = [21, 22, 23, 24, 25, 26, 27, 28];
+const UNIQUE = ['blue', 'green', 'yellow', 'marine', 'purple', 'cyan', 'brown', 'lime', 'grey', 'red'];
+const NODES = [
+  'property', 'business-group', 'central-node', 'sanction', 'phone', 'court',
+  'group-list-element', 'email', 'unknown', 'person', 'location', 'company',
+];
+
+const ramp = (prefix: string, steps: (number | string)[]) =>
+  steps.map((s) => ({ name: `${prefix}-${s}`, label: String(s) }));
+
 function Swatch({ varName, label }: { varName: string; label: string }) {
   return (
     <div style={{ textAlign: 'center', fontSize: 10 }}>
@@ -112,6 +138,39 @@ function Swatch({ varName, label }: { varName: string; label: string }) {
         }}
       />
       <div style={{ marginTop: 4, color: 'var(--text-subtlest)' }}>{label}</div>
+    </div>
+  );
+}
+
+function Ramp({ title, vars }: { title: string; vars: { name: string; label: string }[] }) {
+  return (
+    <div>
+      <div
+        style={{
+          fontSize: 11,
+          color: 'var(--text-subtlest)',
+          marginBottom: 6,
+          fontFamily: 'var(--liga-font-family)',
+        }}
+      >
+        {title}
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+        {vars.map(({ name, label }) => (
+          <div key={name} style={{ textAlign: 'center', fontSize: 9 }} title={`--${name}`}>
+            <div
+              style={{
+                width: 44,
+                height: 32,
+                borderRadius: 'var(--cntnr-corner-small)',
+                background: `var(--${name})`,
+                border: '1px solid var(--cntnr-border-subtlest)',
+              }}
+            />
+            <div style={{ marginTop: 2, color: 'var(--text-subtlest)' }}>{label}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -185,6 +244,44 @@ export function App() {
               {label}
             </span>
           ))}
+        </div>
+      </section>
+
+      <section style={{ marginBottom: 'var(--space-600)' }}>
+        <h2 className={typographyClass('h400-medium')} style={{ color: 'var(--text-default)', marginBottom: 'var(--space-300)' }}>
+          All color tokens
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-400)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-200)' }}>
+            <Ramp title="Primary" vars={ramp('color-primary', PRIMARY)} />
+            <Ramp title="Neutral / Solid" vars={ramp('color-neutral-solid', NEUTRAL_SOLID)} />
+            <Ramp title="Neutral / Alpha" vars={ramp('color-neutral-alpha', NEUTRAL_ALPHA)} />
+            <Ramp title="Dark Neutral / Solid" vars={ramp('color-dark-neutral-solid', DARK_SOLID)} />
+            <Ramp title="Dark Neutral / Alpha" vars={ramp('color-dark-neutral-alpha', DARK_ALPHA)} />
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-200)' }}>
+            {OTHER_FAMILIES.map(([title, slug]) => (
+              <Ramp
+                key={slug}
+                title={`Other colors / ${title}`}
+                vars={ramp(`color-other-colors-${slug}`, OTHER_STEPS)}
+              />
+            ))}
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-200)' }}>
+            <Ramp title="Charts / Colors 1–21" vars={ramp('colors-color', CHART_COLORS)} />
+            <Ramp title="Charts / Monochrome 21–28" vars={ramp('monochrome-color', MONOCHROME)} />
+            <Ramp
+              title="Charts / unique_colors"
+              vars={UNIQUE.map((u) => ({ name: `unique-colors-${u}`, label: u }))}
+            />
+            <Ramp
+              title="Charts / node (graph entities)"
+              vars={NODES.map((n) => ({ name: `node-${n}`, label: n.replace(/-/g, ' ') }))}
+            />
+          </div>
         </div>
       </section>
 

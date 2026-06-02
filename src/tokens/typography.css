@@ -1,6 +1,6 @@
 /* =====================================================================
    Liga DS — typography.
-   The 26 published Figma text styles (H100–H800). Font SIZE references the
+   The 40 published Figma text styles (H100–H800). Font SIZE references the
    responsive --typo-sizes-h* tokens (H450–H800 shrink on tablet/mobile);
    line-height / letter-spacing / case are fixed per the published style.
    Font family follows the brand (--liga-font-family: Lato / e-Ukraine).
@@ -26,14 +26,28 @@
 :where(.liga-typo-h400-regular-paragraph),
 :where(.liga-typo-h400-medium),
 :where(.liga-typo-h400-bold),
+:where(.liga-typo-h400-caps),
+:where(.liga-typo-h450-regular),
 :where(.liga-typo-h450-medium),
 :where(.liga-typo-h450-bold),
+:where(.liga-typo-h450-caps),
+:where(.liga-typo-h500-regular),
 :where(.liga-typo-h500-medium),
 :where(.liga-typo-h500-bold),
+:where(.liga-typo-h500-caps),
+:where(.liga-typo-h600-regular),
 :where(.liga-typo-h600-medium),
 :where(.liga-typo-h600-bold),
+:where(.liga-typo-h600-caps),
+:where(.liga-typo-h700-regular),
+:where(.liga-typo-h700-medium),
 :where(.liga-typo-h700-semibold),
-:where(.liga-typo-h800-medium) {
+:where(.liga-typo-h700-bold),
+:where(.liga-typo-h700-caps),
+:where(.liga-typo-h800-regular),
+:where(.liga-typo-h800-medium),
+:where(.liga-typo-h800-bold),
+:where(.liga-typo-h800-caps) {
   font-family: var(--liga-font-family);
   font-style: normal;
   margin: 0;
@@ -64,21 +78,35 @@
 .liga-typo-h400-regular-paragraph { font-size: var(--typo-sizes-h400); line-height: 24px; font-weight: 400; letter-spacing: 0.33px; }
 .liga-typo-h400-medium            { font-size: var(--typo-sizes-h400); line-height: 20px; font-weight: 500; letter-spacing: 0.13px; }
 .liga-typo-h400-bold              { font-size: var(--typo-sizes-h400); line-height: 20px; font-weight: 700; letter-spacing: 0.13px; }
+.liga-typo-h400-caps              { font-size: var(--typo-sizes-h400); line-height: 24px; font-weight: 400; letter-spacing: 0.40px; text-transform: uppercase; }
 
 /* ---- H450 (18px → 16) ---- */
-.liga-typo-h450-medium { font-size: var(--typo-sizes-h450); line-height: 22px; font-weight: 500; letter-spacing: 0.10px; }
-.liga-typo-h450-bold   { font-size: var(--typo-sizes-h450); line-height: 22px; font-weight: 700; letter-spacing: 0.10px; }
+.liga-typo-h450-regular { font-size: var(--typo-sizes-h450); line-height: 22px; font-weight: 400; letter-spacing: 0.35px; }
+.liga-typo-h450-medium  { font-size: var(--typo-sizes-h450); line-height: 22px; font-weight: 500; letter-spacing: 0.10px; }
+.liga-typo-h450-bold    { font-size: var(--typo-sizes-h450); line-height: 22px; font-weight: 700; letter-spacing: 0.10px; }
+.liga-typo-h450-caps    { font-size: var(--typo-sizes-h450); line-height: 24px; font-weight: 400; letter-spacing: 0.40px; text-transform: uppercase; }
 
 /* ---- H500 (20px → 18) ---- */
-.liga-typo-h500-medium { font-size: var(--typo-sizes-h500); line-height: 24px; font-weight: 500; letter-spacing: 0.06px; }
-.liga-typo-h500-bold   { font-size: var(--typo-sizes-h500); line-height: 24px; font-weight: 700; letter-spacing: 0.06px; }
+.liga-typo-h500-regular { font-size: var(--typo-sizes-h500); line-height: 24px; font-weight: 400; letter-spacing: 0.38px; }
+.liga-typo-h500-medium  { font-size: var(--typo-sizes-h500); line-height: 24px; font-weight: 500; letter-spacing: 0.06px; }
+.liga-typo-h500-bold    { font-size: var(--typo-sizes-h500); line-height: 24px; font-weight: 700; letter-spacing: 0.06px; }
+.liga-typo-h500-caps    { font-size: var(--typo-sizes-h500); line-height: 24px; font-weight: 700; letter-spacing: 0.38px; text-transform: uppercase; }
 
 /* ---- H600 (24px → 20) ---- */
-.liga-typo-h600-medium { font-size: var(--typo-sizes-h600); line-height: 28px; font-weight: 500; letter-spacing: -0.02px; }
-.liga-typo-h600-bold   { font-size: var(--typo-sizes-h600); line-height: 28px; font-weight: 700; letter-spacing: -0.02px; }
+.liga-typo-h600-regular { font-size: var(--typo-sizes-h600); line-height: 28px; font-weight: 400; letter-spacing: 0.42px; }
+.liga-typo-h600-medium  { font-size: var(--typo-sizes-h600); line-height: 28px; font-weight: 500; letter-spacing: -0.02px; }
+.liga-typo-h600-bold    { font-size: var(--typo-sizes-h600); line-height: 28px; font-weight: 700; letter-spacing: -0.02px; }
+.liga-typo-h600-caps    { font-size: var(--typo-sizes-h600); line-height: 28px; font-weight: 400; letter-spacing: 0.42px; text-transform: uppercase; }
 
 /* ---- H700 (29px → 24) ---- */
+.liga-typo-h700-regular  { font-size: var(--typo-sizes-h700); line-height: 32px; font-weight: 400; letter-spacing: 0.38px; }
+.liga-typo-h700-medium   { font-size: var(--typo-sizes-h700); line-height: 32px; font-weight: 500; letter-spacing: 0.38px; }
 .liga-typo-h700-semibold { font-size: var(--typo-sizes-h700); line-height: 32px; font-weight: 600; letter-spacing: -0.14px; }
+.liga-typo-h700-bold     { font-size: var(--typo-sizes-h700); line-height: 32px; font-weight: 700; letter-spacing: -0.14px; }
+.liga-typo-h700-caps     { font-size: var(--typo-sizes-h700); line-height: 32px; font-weight: 400; letter-spacing: -0.14px; text-transform: uppercase; }
 
 /* ---- H800 (35px → 29) ---- */
-.liga-typo-h800-medium { font-size: var(--typo-sizes-h800); line-height: 38px; font-weight: 500; letter-spacing: 0.04px; }
+.liga-typo-h800-regular { font-size: var(--typo-sizes-h800); line-height: 38px; font-weight: 400; letter-spacing: 0.04px; }
+.liga-typo-h800-medium  { font-size: var(--typo-sizes-h800); line-height: 38px; font-weight: 500; letter-spacing: 0.04px; }
+.liga-typo-h800-bold    { font-size: var(--typo-sizes-h800); line-height: 38px; font-weight: 700; letter-spacing: -0.31px; }
+.liga-typo-h800-caps    { font-size: var(--typo-sizes-h800); line-height: 38px; font-weight: 400; letter-spacing: 0.04px; text-transform: uppercase; }
