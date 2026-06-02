@@ -1,0 +1,42 @@
+{
+  "name": "@liga360/icons",
+  "version": "0.1.0",
+  "description": "Liga360 icon set — tree-shakeable React components generated from the IconPack Liga360 Figma library.",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/liga360-icons.cjs",
+  "module": "./dist/liga360-icons.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/liga360-icons.js",
+      "require": "./dist/liga360-icons.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "generate": "node scripts/generate-icons.mjs"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@svgr/plugin-svgo": "^8.1.0",
+    "@types/react": "^19.2.16",
+    "@vitejs/plugin-react": "^6.0.2",
+    "react": "^19.2.0",
+    "svgo": "^4.0.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16",
+    "vite-plugin-dts": "^5.0.2"
+  }
+}
