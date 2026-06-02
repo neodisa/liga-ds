@@ -11,8 +11,10 @@ not invented. Multi-brand (**Liga360** / **United**), token-driven, WCAG 2.1 AA.
 
 ## Install
 
+From the private GitHub repo (builds on install via the `prepare` script):
+
 ```bash
-npm install liga-ds
+npm install github:neodisa/liga-ds
 ```
 
 Peer dependencies: `react >=18`, `react-dom >=18`.
