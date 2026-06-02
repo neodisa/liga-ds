@@ -1,0 +1,35 @@
+name: Publish package
+
+# Publishes @neodisa/liga-ds to GitHub Packages when a version tag is pushed.
+# Uses the workflow's built-in GITHUB_TOKEN — no personal tokens or secrets needed.
+#   git tag v0.1.0 && git push origin v0.1.0
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          scope: '@neodisa'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # npm publish runs prepublishOnly (typecheck + test + build) before uploading.
+      # files:["dist"] means only the built output is published — never the source.
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

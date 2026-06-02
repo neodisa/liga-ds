@@ -1,5 +1,5 @@
 {
-  "name": "liga-ds",
+  "name": "@neodisa/liga-ds",
   "version": "0.1.0",
   "description": "Liga DS — a universal, accessible, production-grade React design system (Liga360 / United brands).",
   "type": "module",
@@ -14,13 +14,17 @@
     "ligazakon"
   ],
   "author": "LigaZakon",
-  "homepage": "https://github.com/ligazakon/liga-ds#readme",
+  "homepage": "https://github.com/neodisa/liga-ds#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ligazakon/liga-ds.git"
+    "url": "git+https://github.com/neodisa/liga-ds.git"
   },
   "bugs": {
-    "url": "https://github.com/ligazakon/liga-ds/issues"
+    "url": "https://github.com/neodisa/liga-ds/issues"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
   },
   "engines": {
     "node": ">=18"
@@ -47,7 +51,7 @@
     "build": "vite build",
     "build:playground": "vite build --config vite.playground.config.ts",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit -p tsconfig.build.json",
     "test": "vitest run",
     "test:watch": "vitest",
     "prepare": "npm run build",

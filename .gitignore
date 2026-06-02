@@ -29,3 +29,6 @@ dist-playground/
 
 # npm pack artifacts
 *.tgz
+
+# never commit a real npm token
+.npmrc

@@ -1,0 +1,9 @@
+# Consumer setup for installing @neodisa/liga-ds from GitHub Packages.
+# Copy to your project root as `.npmrc` (or merge into ~/.npmrc). Do NOT commit a real token.
+#
+# 1) Create a GitHub token with the `read:packages` scope.
+# 2) Export it:  export GITHUB_TOKEN=ghp_xxx
+# 3) npm install @neodisa/liga-ds
+
+@neodisa:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}

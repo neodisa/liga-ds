@@ -11,21 +11,41 @@ not invented. Multi-brand (**Liga360** / **United**), token-driven, WCAG 2.1 AA.
 
 ## Install
 
-From the private GitHub repo (builds on install via the `prepare` script):
+The package is published privately to **GitHub Packages** as `@neodisa/liga-ds`.
 
-```bash
-npm install github:neodisa/liga-ds
+**1. Point the `@neodisa` scope at GitHub Packages** — add to your project's (or `~/`) `.npmrc`:
+
+```ini
+@neodisa:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
 
-Peer dependencies: `react >=18`, `react-dom >=18`.
+**2. Authenticate** — each consumer needs a GitHub token with the **`read:packages`** scope
+(Settings → Developer settings → Personal access tokens). Export it (don't commit it):
+
+```bash
+export GITHUB_TOKEN=ghp_xxx   # token with read:packages
+```
+
+**3. Install:**
+
+```bash
+npm install @neodisa/liga-ds
+```
+
+This pulls the **built package only** (`dist/` — no source). Peer dependencies: `react >=18`,
+`react-dom >=18`.
+
+> Alternative (no registry, requires git read access to the private repo, builds on install):
+> `npm install github:neodisa/liga-ds#v0.1.0`
 
 ## Usage
 
 Import the stylesheet once (at your app root), then use components:
 
 ```tsx
-import 'liga-ds/styles.css';
-import { Button, Field, Input, Select } from 'liga-ds';
+import '@neodisa/liga-ds/styles.css';
+import { Button, Field, Input, Select } from '@neodisa/liga-ds';
 
 export function Example() {
   return (
@@ -61,7 +81,7 @@ Every value resolves to a Figma token CSS variable (real names, e.g. `--text-def
 in your own CSS, or use the typed helpers:
 
 ```ts
-import { space, radius, cssVar, type Tone } from 'liga-ds';
+import { space, radius, cssVar, type Tone } from '@neodisa/liga-ds';
 space('100');          // → var(--space-100)  (8px)
 radius('normal');      // → var(--cntnr-corner-normal)  (8px)
 cssVar('text-accent'); // → var(--text-accent)
@@ -73,18 +93,18 @@ cssVar('text-accent'); // → var(--text-accent)
 
 | Family | Components |
 | --- | --- |
-| **Typography** | `Text`, `Heading` (26 published text styles) |
+| **Typography** | `Text`, `Heading` (40 published text styles) |
 | **Actions** | `Button`, `IconButton` (6 variants × 4 sizes × states), `Spinner` |
-| **Forms** | `Input`, `SearchInput`, `Textarea`, `Field`, `Checkbox`, `Radio` + `RadioGroup`, `Select` |
+| **Forms** | `Input`, `SearchInput`, `Textarea`, `Field`, `Checkbox`, `Radio` + `RadioGroup`, `Switch`, `Select` |
 | **Status** | `Badge`, `Tag`, `Chip` (6 tones, solid/subtle) |
 | **Selection (rich)** | `Select` (listbox + typeahead), `Menu` (`Menu.Item` / `Menu.Separator`) |
 | **Feedback** | `Alert`, `Divider`, `Skeleton` |
 | **Overlays** | `Tooltip`, `Popover`, `Modal` (focus-trapped, dismissible) |
-| **Navigation** | `Tabs` (`Tabs.List` / `Tabs.Tab` / `Tabs.Panel`) |
+| **Navigation** | `Tabs` (pill / underline · `Tabs.List` / `Tabs.Tab` / `Tabs.Panel`), `Breadcrumbs`, `Pagination` |
 | **Data** | `Avatar`, `Table` (`Table.Head/Body/Row/HeaderCell/Cell`, zebra · hover · sortable), `DatePicker` |
 
 All components: `forwardRef`, `className`/`style` passthrough, controlled + uncontrolled where
-stateful, full keyboard + ARIA, both brands verified. 27 components, 94 tests (incl. axe).
+stateful, full keyboard + ARIA, both brands verified. 30 components, 111 tests (incl. axe).
 
 ### Roadmap (not yet built)
 

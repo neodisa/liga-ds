@@ -1,0 +1,7 @@
+{
+  "//": "Typecheck config for the publishable LIBRARY (src + tests + build configs).",
+  "//2": "Excludes playground/ — it's a dev-only demo built by Vite and imports the",
+  "//3": "separate @liga360/icons package, which must not gate library publishing.",
+  "extends": "./tsconfig.json",
+  "include": ["src", "test", "vite.config.ts", "vitest.config.ts", "vite.playground.config.ts"]
+}
