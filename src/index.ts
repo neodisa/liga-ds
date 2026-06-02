@@ -27,6 +27,7 @@ export { Textarea, type TextareaProps } from './components/Textarea';
 export { Field, type FieldProps } from './components/Field';
 export { Checkbox, type CheckboxProps } from './components/Checkbox';
 export { Radio, RadioGroup, useRadioGroup, type RadioProps, type RadioGroupProps } from './components/Radio';
+export { Switch, type SwitchProps, type SwitchSize } from './components/Switch';
 export { Badge, type BadgeProps, type BadgeVariant, type BadgeSize } from './components/Badge';
 export { Tag, type TagProps } from './components/Tag';
 export { Chip, type ChipProps } from './components/Chip';
@@ -61,7 +62,20 @@ export {
   type TabsProps,
   type TabProps,
   type TabPanelProps,
+  type TabsVariant,
+  type TabsSize,
 } from './components/Tabs';
+export {
+  Breadcrumbs,
+  BreadcrumbItem,
+  type BreadcrumbsProps,
+  type BreadcrumbItemProps,
+} from './components/Breadcrumbs';
+export {
+  Pagination,
+  type PaginationProps,
+  type PaginationSize,
+} from './components/Pagination';
 export { Avatar, type AvatarProps, type AvatarSize } from './components/Avatar';
 export { DatePicker, type DatePickerProps } from './components/DatePicker';
 export {

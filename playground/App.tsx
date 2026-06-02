@@ -13,6 +13,7 @@ import {
   Checkbox,
   Radio,
   RadioGroup,
+  Switch,
   Badge,
   Tag,
   Chip,
@@ -25,6 +26,8 @@ import {
   Select,
   Menu,
   Tabs,
+  Breadcrumbs,
+  Pagination,
   Avatar,
   Table,
   DatePicker,
@@ -115,6 +118,8 @@ function Swatch({ varName, label }: { varName: string; label: string }) {
 
 export function App() {
   const [brand, setBrand] = useState<Brand>('liga360');
+  const [page, setPage] = useState(3);
+  const [wifi, setWifi] = useState(true);
 
   return (
     <div
@@ -295,7 +300,7 @@ export function App() {
 
       <section style={{ marginTop: 'var(--space-800)' }}>
         <Heading level={3} style={{ marginBottom: 'var(--space-300)' }}>
-          Components · Checkbox &amp; Radio
+          Components · Checkbox &amp; Radio &amp; Switch
         </Heading>
         <div style={{ display: 'flex', gap: 'var(--space-600)', flexWrap: 'wrap' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-150)' }}>
@@ -311,6 +316,14 @@ export function App() {
             <Radio value="push">Push</Radio>
             <Radio value="none" disabled>None (disabled)</Radio>
           </RadioGroup>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-150)' }}>
+            <Switch checked={wifi} onChange={(e) => setWifi(e.target.checked)}>Wi‑Fi (md, controlled)</Switch>
+            <Switch defaultChecked size="sm">Bluetooth (sm)</Switch>
+            <Switch>Airplane mode</Switch>
+            <Switch invalid>Invalid</Switch>
+            <Switch defaultChecked disabled>Disabled on</Switch>
+            <Switch disabled>Disabled off</Switch>
+          </div>
         </div>
       </section>
 
@@ -355,6 +368,18 @@ export function App() {
           <Alert tone="success" title="Saved" onClose={() => {}}>Your changes were saved.</Alert>
           <Alert tone="warning">Your trial ends in 3 days.</Alert>
           <Alert tone="danger" title="Error" onClose={() => {}}>Could not connect to the server.</Alert>
+
+          <Text variant="h200-caps" color="subtlest">Divider — horizontal</Text>
+          <Divider />
+          <Text color="subtle">Text above and below a horizontal divider.</Text>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-200)', height: 24 }}>
+            <Text>Left</Text>
+            <Divider orientation="vertical" />
+            <Text>Middle</Text>
+            <Divider orientation="vertical" />
+            <Text>Right</Text>
+          </div>
+
           <Divider />
           <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-200)' }}>
             <Skeleton circle height={40} />
@@ -369,9 +394,15 @@ export function App() {
         <Heading level={3} style={{ marginBottom: 'var(--space-300)' }}>
           Components · Tooltip · Popover · Modal
         </Heading>
+        <Text color="subtle" style={{ marginBottom: 'var(--space-200)', display: 'block' }}>
+          Tooltip is shown on hover or keyboard focus (it is not rendered statically).
+        </Text>
         <div style={{ display: 'flex', gap: 'var(--space-300)', flexWrap: 'wrap', alignItems: 'center' }}>
           <Tooltip content="I'm a tooltip">
             <Button variant="secondary">Hover / focus me</Button>
+          </Tooltip>
+          <Tooltip content="Settings">
+            <IconButton icon={<IconSettings />} aria-label="Settings" variant="secondary" />
           </Tooltip>
 
           <Popover>
@@ -420,17 +451,38 @@ export function App() {
         <Heading level={3} style={{ marginBottom: 'var(--space-300)' }}>
           Components · Tabs · Avatar
         </Heading>
-        <Tabs defaultValue="overview">
-          <Tabs.List aria-label="Document sections">
-            <Tabs.Tab value="overview">Overview</Tabs.Tab>
-            <Tabs.Tab value="activity">Activity</Tabs.Tab>
-            <Tabs.Tab value="settings">Settings</Tabs.Tab>
-            <Tabs.Tab value="archived" disabled>Archived</Tabs.Tab>
-          </Tabs.List>
-          <Tabs.Panel value="overview"><Text>Overview panel content.</Text></Tabs.Panel>
-          <Tabs.Panel value="activity"><Text>Activity panel content.</Text></Tabs.Panel>
-          <Tabs.Panel value="settings"><Text>Settings panel content.</Text></Tabs.Panel>
-        </Tabs>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-500)' }}>
+          <div>
+            <Text variant="h200-caps" color="subtlest">variant="pill" (default)</Text>
+            <Tabs defaultValue="overview" variant="pill">
+              <Tabs.List aria-label="Document sections (pill)">
+                <Tabs.Tab value="overview" icon={<IconInfo />} count={2}>Overview</Tabs.Tab>
+                <Tabs.Tab value="activity" icon={<IconBookmark />} count={12}>Activity</Tabs.Tab>
+                <Tabs.Tab value="settings" icon={<IconSettings />}>Settings</Tabs.Tab>
+                <Tabs.Tab value="archived" disabled>Archived</Tabs.Tab>
+              </Tabs.List>
+              <Tabs.Panel value="overview"><Text>Overview panel content.</Text></Tabs.Panel>
+              <Tabs.Panel value="activity"><Text>Activity panel content.</Text></Tabs.Panel>
+              <Tabs.Panel value="settings"><Text>Settings panel content.</Text></Tabs.Panel>
+            </Tabs>
+          </div>
+
+          <div>
+            <Text variant="h200-caps" color="subtlest">variant="underline"</Text>
+            <Tabs defaultValue="activity" variant="underline">
+              <Tabs.List aria-label="Document sections (underline)">
+                <Tabs.Tab value="overview" count={2}>Overview</Tabs.Tab>
+                <Tabs.Tab value="activity" count={12}>Activity</Tabs.Tab>
+                <Tabs.Tab value="settings">Settings</Tabs.Tab>
+                <Tabs.Tab value="archived" disabled>Archived</Tabs.Tab>
+              </Tabs.List>
+              <Tabs.Panel value="overview"><Text>Overview panel content.</Text></Tabs.Panel>
+              <Tabs.Panel value="activity"><Text>Activity panel content.</Text></Tabs.Panel>
+              <Tabs.Panel value="settings"><Text>Settings panel content.</Text></Tabs.Panel>
+            </Tabs>
+          </div>
+        </div>
 
         <div style={{ display: 'flex', gap: 'var(--space-200)', alignItems: 'center', marginTop: 'var(--space-400)' }}>
           <Avatar name="Serhii Arkhipov" size="sm" />
@@ -486,6 +538,32 @@ export function App() {
           </Menu>
           <div style={{ width: 220 }}>
             <DatePicker aria-label="Date" defaultValue={new Date(2026, 5, 2)} />
+          </div>
+        </div>
+      </section>
+
+      <section style={{ marginTop: 'var(--space-800)' }}>
+        <Heading level={3} style={{ marginBottom: 'var(--space-300)' }}>
+          Components · Breadcrumbs · Pagination
+        </Heading>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-400)' }}>
+          <Breadcrumbs>
+            <Breadcrumbs.Item href="#" icon={<IconFolder />}>Home</Breadcrumbs.Item>
+            <Breadcrumbs.Item href="#">Documents</Breadcrumbs.Item>
+            <Breadcrumbs.Item href="#">2026</Breadcrumbs.Item>
+            <Breadcrumbs.Item current>Q2 report</Breadcrumbs.Item>
+          </Breadcrumbs>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-200)' }}>
+            <Pagination count={7} defaultPage={1} aria-label="Short pagination" />
+            <Pagination
+              count={20}
+              page={page}
+              onPageChange={setPage}
+              aria-label="Long controlled pagination"
+            />
+            <Text color="subtle">Current page: {page}</Text>
+            <Pagination count={9} defaultPage={4} size="sm" aria-label="Small pagination" />
           </div>
         </div>
       </section>

@@ -12,11 +12,16 @@ import { cn } from '../../utils/cn';
 import { useControllableState } from '../../utils/useControllableState';
 import styles from './Tabs.module.css';
 
+export type TabsVariant = 'pill' | 'underline';
+export type TabsSize = 'sm' | 'md';
+
 interface TabsContextValue {
   value: string | undefined;
   setValue: (v: string) => void;
   idBase: string;
   orientation: 'horizontal' | 'vertical';
+  variant: TabsVariant;
+  size: TabsSize;
 }
 const TabsContext = createContext<TabsContextValue | null>(null);
 function useTabs(): TabsContextValue {
@@ -30,10 +35,24 @@ export interface TabsProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChang
   defaultValue?: string;
   onValueChange?: (value: string) => void;
   orientation?: 'horizontal' | 'vertical';
+  /** `pill` (filled selected pill) or `underline` (bottom rule). Default `pill`. */
+  variant?: TabsVariant;
+  /** `sm` 32px · `md` 40px. Default `md`. */
+  size?: TabsSize;
   children: ReactNode;
 }
 
-function TabsRoot({ value, defaultValue, onValueChange, orientation = 'horizontal', className, children, ...rest }: TabsProps) {
+function TabsRoot({
+  value,
+  defaultValue,
+  onValueChange,
+  orientation = 'horizontal',
+  variant = 'pill',
+  size = 'md',
+  className,
+  children,
+  ...rest
+}: TabsProps) {
   const [val, setVal] = useControllableState<string | undefined>({
     value,
     defaultValue,
@@ -41,7 +60,7 @@ function TabsRoot({ value, defaultValue, onValueChange, orientation = 'horizonta
   });
   const idBase = useId();
   return (
-    <TabsContext.Provider value={{ value: val, setValue: setVal, idBase, orientation }}>
+    <TabsContext.Provider value={{ value: val, setValue: setVal, idBase, orientation, variant, size }}>
       <div className={className} {...rest}>
         {children}
       </div>
@@ -53,7 +72,7 @@ export const TabsList = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
   { className, onKeyDown, ...rest },
   ref,
 ) {
-  const { orientation } = useTabs();
+  const { orientation, variant } = useTabs();
 
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     onKeyDown?.(e);
@@ -82,6 +101,7 @@ export const TabsList = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
       role="tablist"
       aria-orientation={orientation}
       data-orientation={orientation}
+      data-variant={variant}
       className={cn(styles.list, className)}
       onKeyDown={handleKeyDown}
       {...rest}
@@ -92,10 +112,14 @@ export const TabsList = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
 export interface TabProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Identifies this tab and its panel. */
   value: string;
+  /** Optional leading icon (rendered before the label). */
+  icon?: ReactNode;
+  /** Optional trailing count badge (number or short string). */
+  count?: ReactNode;
 }
 
 export const Tab = forwardRef<HTMLButtonElement, TabProps>(function Tab(
-  { value, className, onClick, disabled, ...rest },
+  { value, icon, count, className, onClick, disabled, children, ...rest },
   ref,
 ) {
   const ctx = useTabs();
@@ -110,6 +134,8 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(function Tab(
       aria-controls={`${ctx.idBase}-panel-${value}`}
       tabIndex={selected ? 0 : -1}
       data-selected={selected || undefined}
+      data-variant={ctx.variant}
+      data-size={ctx.size}
       disabled={disabled}
       className={cn(styles.tab, className)}
       onClick={(e) => {
@@ -117,7 +143,15 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(function Tab(
         if (!disabled) ctx.setValue(value);
       }}
       {...rest}
-    />
+    >
+      {icon != null && (
+        <span className={styles.icon} aria-hidden="true">
+          {icon}
+        </span>
+      )}
+      <span className={styles.label}>{children}</span>
+      {count != null && count !== false && <span className={styles.count}>{count}</span>}
+    </button>
   );
 });
 

@@ -1,0 +1,74 @@
+.nav {
+  font-family: var(--liga-font-family);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-075);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+  border-radius: var(--cntnr-corner-small, 6px);
+  color: var(--text-subtle);
+  text-decoration: none;
+}
+
+.link {
+  color: var(--link-default);
+  cursor: pointer;
+  transition: color 160ms ease;
+}
+.link:hover {
+  color: var(--text-click);
+  text-decoration: underline;
+}
+.link:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+.current {
+  color: var(--text-default);
+  font-weight: 600;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+.icon :global(svg) {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.separator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 var(--space-075);
+  color: var(--icon-subtlest);
+}
+.separator :global(svg) {
+  display: block;
+}
