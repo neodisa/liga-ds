@@ -56,6 +56,21 @@ Compound parts: `Tabs.List/Tab/Panel`, `Modal.Trigger/Content/Title/Description/
 **Exact props live in the shipped TypeScript types** (`@neodisa/liga-ds` includes `.d.ts`) —
 rely on editor autocomplete; don't guess prop names.
 
+## Icons
+
+459 icons ship as a tree-shakeable subpath of the same package — same install/token, just
+add `/icons`. Use these instead of inlining raw SVG or pulling another icon set:
+
+```tsx
+import { IconAdd, IconSearch, type IconProps } from '@neodisa/liga-ds/icons';
+
+<IconAdd width={20} aria-hidden />
+```
+
+Icons default to `1em` / `currentColor` (size via `width`/`height`/CSS, color via `color`).
+Pass `title` for an accessible name. Names follow `Icon<Name>` — rely on autocomplete from the
+shipped types; don't guess.
+
 ## Theming & tokens
 
 - Brand theme via `data-brand="united"` on `<html>`/`<body>` (default is Liga360). Don't hardcode colors.

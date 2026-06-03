@@ -1,7 +1,7 @@
 {
-  "//": "Typecheck config for the publishable LIBRARY (src + tests + build configs).",
-  "//2": "Excludes playground/ — it's a dev-only demo built by Vite and imports the",
-  "//3": "separate @liga360/icons package, which must not gate library publishing.",
+  "//": "Typecheck config for the publishable LIBRARY (src + icons + tests + build configs).",
+  "//2": "icons/src is bundled into the library as the @neodisa/liga-ds/icons subpath, so it",
+  "//3": "is typechecked here. Excludes playground/ — a dev-only Vite demo, not published.",
   "extends": "./tsconfig.json",
-  "include": ["src", "test", "vite.config.ts", "vitest.config.ts", "vite.playground.config.ts"]
+  "include": ["src", "icons/src", "test", "vite.config.ts", "vitest.config.ts", "vite.playground.config.ts"]
 }

@@ -37,7 +37,7 @@ This pulls the **built package only** (`dist/` — no source). Peer dependencies
 `react-dom >=18`.
 
 > Alternative (no registry, requires git read access to the private repo, builds on install):
-> `npm install github:neodisa/liga-ds#v0.1.0`
+> `npm install github:neodisa/liga-ds#v0.2.0`
 
 ## Usage
 
@@ -105,6 +105,22 @@ cssVar('text-accent'); // → var(--text-accent)
 
 All components: `forwardRef`, `className`/`style` passthrough, controlled + uncontrolled where
 stateful, full keyboard + ARIA, both brands verified. 30 components, 111 tests (incl. axe).
+
+### Icons
+
+459 icons (generated from the **IconPack Liga360** Figma library) ship as a tree-shakeable
+subpath of the same package — no extra install, same scope and token:
+
+```tsx
+import { IconAdd, IconSearch, type IconProps } from '@neodisa/liga-ds/icons';
+
+<IconAdd width={20} aria-hidden />
+```
+
+Each icon is a `forwardRef` SVG that defaults to `1em` (inherits `font-size`) and
+`currentColor`. Size via `width`/`height`/CSS, color via `color`; pass `title` for an
+accessible name. Only the icons you import land in your bundle. The icon set is authored and
+regenerated from SVGs under [`icons/`](icons/) via SVGR (`cd icons && npm run generate:svg`).
 
 ### Roadmap (not yet built)
 
