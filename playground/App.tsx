@@ -26,6 +26,7 @@ import {
   Select,
   Menu,
   Tabs,
+  Header,
   Breadcrumbs,
   Pagination,
   Avatar,
@@ -61,6 +62,10 @@ import {
   IconStarFavoriteFilled,
   IconClose,
   IconUserEdit,
+  IconBurgerMenu,
+  IconStarFavoriteOutline,
+  IconNotificationBellOutline,
+  IconQuestionHelp,
 } from '@liga360/icons';
 
 const SAMPLE_ICONS = [
@@ -540,6 +545,47 @@ export function App() {
               ]}
               defaultValue="react"
             />
+          </div>
+        </div>
+      </section>
+
+      <section style={{ marginTop: 'var(--space-800)' }}>
+        <Heading level={3} style={{ marginBottom: 'var(--space-300)' }}>
+          Components · Header
+        </Heading>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-500)' }}>
+          <div>
+            <Text variant="h200-caps" color="subtlest">signed in (resize below 1024px to collapse)</Text>
+            <Header sticky>
+              <Header.Leading>
+                <Header.Burger aria-label="Меню" icon={<IconBurgerMenu />} />
+                <Header.Brand href="#">LIGA360</Header.Brand>
+              </Header.Leading>
+              <Header.Nav aria-label="Розділи">
+                <Header.NavItem href="#" active>Законодавство</Header.NavItem>
+                <Header.NavItem href="#">Судова робота</Header.NavItem>
+                <Header.NavItem href="#">Договори</Header.NavItem>
+                <Header.NavItem href="#">Компанії та персони</Header.NavItem>
+                <Header.NavItem href="#">Аналітика</Header.NavItem>
+                <Header.NavItem href="#">Інструменти</Header.NavItem>
+              </Header.Nav>
+              <Header.Actions>
+                <IconButton aria-label="Пошук" data-collapse="hide" icon={<IconSearch />} />
+                <IconButton aria-label="Обране" icon={<IconStarFavoriteOutline />} />
+                <IconButton aria-label="Сповіщення" icon={<IconNotificationBellOutline />} />
+                <IconButton aria-label="Допомога" icon={<IconQuestionHelp />} />
+              </Header.Actions>
+            </Header>
+          </div>
+
+          <div>
+            <Text variant="h200-caps" color="subtlest">signed out (brand only)</Text>
+            <Header signedIn={false}>
+              <Header.Leading>
+                <Header.Brand href="#">LIGA360</Header.Brand>
+              </Header.Leading>
+            </Header>
           </div>
         </div>
       </section>
