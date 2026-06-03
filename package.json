@@ -1,6 +1,6 @@
 {
   "name": "@neodisa/liga-ds",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Liga DS — a universal, accessible, production-grade React design system (Liga360 / United brands).",
   "type": "module",
   "license": "MIT",
@@ -44,7 +44,12 @@
       "import": "./dist/liga-ds.js",
       "require": "./dist/liga-ds.cjs"
     },
-    "./styles.css": "./dist/liga-ds.css"
+    "./styles.css": "./dist/liga-ds.css",
+    "./icons": {
+      "types": "./dist/icons/src/index.d.ts",
+      "import": "./dist/icons.js",
+      "require": "./dist/icons.cjs"
+    }
   },
   "scripts": {
     "dev": "vite",

@@ -12,17 +12,22 @@ export default defineConfig(({ command }) => {
       plugins: [
         react(),
         dts({
-          include: ['src'],
+          include: ['src', 'icons/src'],
           exclude: ['**/*.test.*', '**/*.spec.*', '**/*.stories.*'],
           tsconfigPath: './tsconfig.json',
         }),
       ],
       build: {
         lib: {
-          entry: resolve(root, 'src/index.ts'),
-          name: 'LigaDS',
+          // Two entries: the component library and the icon set. Icons ship as the
+          // `@neodisa/liga-ds/icons` subpath (see package.json "exports"); their sources
+          // stay in icons/ as the SVGR generation workspace and are bundled in place here.
+          entry: {
+            'liga-ds': resolve(root, 'src/index.ts'),
+            icons: resolve(root, 'icons/src/index.ts'),
+          },
           formats: ['es', 'cjs'],
-          fileName: (format) => `liga-ds.${format === 'es' ? 'js' : 'cjs'}`,
+          fileName: (format, entryName) => `${entryName}.${format === 'es' ? 'js' : 'cjs'}`,
         },
         rollupOptions: {
           // Externalize React and all runtime deps — the consumer installs them.
