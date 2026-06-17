@@ -18,6 +18,7 @@ import {
   Tag,
   Chip,
   Alert,
+  InlineInform,
   Divider,
   Skeleton,
   Tooltip,
@@ -484,6 +485,77 @@ export function App() {
               <Skeleton lines={2} />
             </div>
           </div>
+        </div>
+      </section>
+
+      <section style={{ marginTop: 'var(--space-800)', maxWidth: 600 }}>
+        <Heading level={3} style={{ marginBottom: 'var(--space-300)' }}>
+          Components · InlineInform
+        </Heading>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-200)' }}>
+          <Text variant="h200-caps" color="subtlest">Full · Grey · Title + Description + Close</Text>
+          <InlineInform title="Short description title" onClose={() => {}}>
+            Lorem ipsum dolor sit amet consectetur. Sapien montes etiam nunc in mauris.
+          </InlineInform>
+
+          <Text variant="h200-caps" color="subtlest">Full · White · No Title · Actions</Text>
+          <InlineInform
+            background="white"
+            actions={[
+              { label: 'Button', onClick: () => {} },
+              { label: 'Button', onClick: () => {}, variant: 'ghost' },
+            ]}
+          >
+            Lorem ipsum dolor sit amet consectetur.
+          </InlineInform>
+
+          <Text variant="h200-caps" color="subtlest">Full · Warning · Title + Actions + Close</Text>
+          <InlineInform
+            background="warning"
+            title="Short description title"
+            onClose={() => {}}
+            actions={[
+              { label: 'Button', onClick: () => {} },
+              { label: 'Button', onClick: () => {}, variant: 'ghost' },
+            ]}
+          >
+            Lorem ipsum dolor sit amet consectetur. Sapien montes etiam nunc.
+          </InlineInform>
+
+          <Text variant="h200-caps" color="subtlest">Full · Green · No Close</Text>
+          <InlineInform background="green" title="Short description title">
+            Lorem ipsum dolor sit amet consectetur.
+          </InlineInform>
+
+          <Text variant="h200-caps" color="subtlest">Line · Grey · No Actions · Close</Text>
+          <InlineInform type="line" onClose={() => {}}>
+            Lorem ipsum dolor sit amet consectetur.
+          </InlineInform>
+
+          <Text variant="h200-caps" color="subtlest">Line · Warning · Actions + Close</Text>
+          <InlineInform
+            type="line"
+            background="warning"
+            onClose={() => {}}
+            actions={[
+              { label: 'Button', onClick: () => {} },
+              { label: 'Button', onClick: () => {}, variant: 'ghost' },
+            ]}
+          >
+            Lorem ipsum dolor sit amet consectetur.
+          </InlineInform>
+
+          <Text variant="h200-caps" color="subtlest">Line · Green · Actions</Text>
+          <InlineInform
+            type="line"
+            background="green"
+            actions={[
+              { label: 'Button', onClick: () => {} },
+              { label: 'Button', onClick: () => {}, variant: 'ghost' },
+            ]}
+          >
+            Lorem ipsum dolor sit amet consectetur.
+          </InlineInform>
         </div>
       </section>
 

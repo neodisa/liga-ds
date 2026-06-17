@@ -79,6 +79,13 @@ export {
 export { Avatar, type AvatarProps, type AvatarSize } from './components/Avatar';
 export { DatePicker, type DatePickerProps } from './components/DatePicker';
 export {
+  InlineInform,
+  type InlineInformProps,
+  type InlineInformType,
+  type InlineInformBackground,
+  type InlineInformAction,
+} from './components/InlineInform';
+export {
   Table,
   TableHead,
   TableBody,
