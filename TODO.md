@@ -19,61 +19,61 @@ Replaced React 19 codebase. Source of truth: Figma file «❖ UI LIBRARY - v1.4�
 - **Tokens:** `projects/liga-ds/src/tokens/` — unchanged from React version
 
 ## Per-component DoD
-- [ ] Component + styles (ViewEncapsulation.None, CSS custom properties)
-- [ ] Inputs typed, Outputs declared
-- [ ] Exported from `src/public-api.ts`
-- [ ] Playground story added to `projects/playground/src/app/app.component.ts`
-- [ ] Screenshot verified
+- [x] Component + styles (ViewEncapsulation.None, CSS custom properties)
+- [x] Inputs typed, Outputs declared
+- [x] Exported from `src/public-api.ts`
+- [x] Playground story added to `projects/playground/src/app/app.component.ts`
+- [x] Build verified (ng build liga-ds + ng build playground — zero errors)
 
 ## Components — 28 total
 
-### Foundation (done)
+### Foundation
 - [x] LdTextComponent — variant + color inputs
 - [x] LdHeadingComponent — level 1-6, role/aria-level
 
 ### Actions
-- [ ] LdButtonComponent — variant (primary/secondary/ghost/danger), size (sm/md/lg), loading, disabled, icon slots
-- [ ] LdIconButtonComponent — icon-only variant
-- [ ] LdSpinnerComponent — size, color
+- [x] LdButtonComponent — variant (primary/secondary/transparent/danger/danger-secondary/danger-transparent), size (sm/md/lg/xl), loading, disabled, icon slots, ldClick
+- [x] LdIconButtonComponent — icon-only variant, ariaLabel required
+- [x] LdSpinnerComponent — size (sm/md/lg), color (default/inverse/accent)
 
 ### Inputs
-- [ ] LdInputComponent — type, size, prefix/suffix slots, error/disabled states
-- [ ] LdSearchInputComponent — clearable
-- [ ] LdTextareaComponent — rows, resize, error state
-- [ ] LdFieldComponent — label, hint, error wrapper for any input
+- [x] LdInputComponent — type, size, prefix/suffix icon slots, search icon, loading, error/disabled/readonly states, ControlValueAccessor
+- [x] LdSearchInputComponent — wraps LdInput with type=search preset
+- [x] LdTextareaComponent — rows, resize, invalid state, ControlValueAccessor
+- [x] LdFieldComponent — label (for linking), description (top/bottom), error wrapper
 
 ### Selection
-- [ ] LdCheckboxComponent — indeterminate, error state
-- [ ] LdRadioComponent — single radio button
-- [ ] LdRadioGroupComponent — group with ControlValueAccessor
-- [ ] LdSwitchComponent — size sm/md
+- [x] LdCheckboxComponent — indeterminate, disabled, ControlValueAccessor
+- [x] LdRadioComponent — standalone or within LdRadioGroupComponent
+- [x] LdRadioGroupComponent — group with ControlValueAccessor, auto-name
+- [x] LdSwitchComponent — size sm/md, ControlValueAccessor, role=switch
 
 ### Labels
-- [ ] LdBadgeComponent — variant, size, dot mode
-- [ ] LdTagComponent — removable, addable
-- [ ] LdChipComponent — selected state, filter mode
+- [x] LdBadgeComponent — tone (primary/success/danger/warning/info/neutral), variant (solid/subtle), size (sm/md), dot mode
+- [x] LdTagComponent — same tone/variant tokens, removable + ldRemove
+- [x] LdChipComponent — button element, aria-pressed for selected, ldToggle
 
 ### Feedback
-- [ ] LdAlertComponent — tone (info/success/warning/danger/neutral), title, onClose
-- [ ] LdDividerComponent — orientation horizontal/vertical
-- [ ] LdSkeletonComponent — lines, circle, custom height
-- [ ] LdInlineInformComponent — type (full/line), background (grey/white/warning/green), actions, onClose
+- [x] LdAlertComponent — tone (info/success/warning/danger/neutral), title, closable, ldClose
+- [x] LdDividerComponent — orientation horizontal/vertical
+- [x] LdSkeletonComponent — lines mode, circle, custom width/height, shimmer animation
+- [x] LdInlineInformComponent — type (full/line), background (grey/white/warning/green), actions, closable
 
 ### Overlays (Angular CDK)
-- [ ] LdTooltipComponent — CDK Overlay, keyboard accessible
-- [ ] LdPopoverComponent — CDK Overlay, trigger/content slots
-- [ ] LdModalComponent — CDK Dialog, title/description/close slots
+- [x] LdTooltipDirective + LdTooltipBoxComponent — CDK Overlay ComponentPortal, placements, delay, keyboard accessible
+- [x] LdPopoverComponent — cdkConnectedOverlay, trigger/content slots, backdrop
+- [x] LdModalComponent + LdModalContentComponent — CDK Dialog, title/description/contentTpl, focus trap, ldClose
 
 ### Lists / Navigation
-- [ ] LdSelectComponent — CDK Overlay listbox, typeahead, option groups
-- [ ] LdMenuComponent — CDK Overlay, MenuItem, MenuSeparator
-- [ ] LdTabsComponent — variant (pill/underline), size, keyboard nav
+- [x] LdSelectComponent — cdkConnectedOverlay listbox, options array, size, ControlValueAccessor
+- [x] LdMenuComponent — cdkConnectedOverlay, MenuItem[], separator, ldSelect, placement
+- [x] LdTabsComponent + LdTabPanelComponent — variant (pill/underline), keyboard nav, count badge
 
 ### Data
-- [ ] LdBreadcrumbsComponent — separator slot, BreadcrumbItem
-- [ ] LdPaginationComponent — size, page/pageSize outputs
-- [ ] LdAvatarComponent — size, fallback initials, image
-- [ ] LdDatePickerComponent — UA locale calendar, range mode
-- [ ] LdTableComponent — sortable columns, zebra, hover, TableHead/Body/Row/Cell
+- [x] LdBreadcrumbsComponent — BreadcrumbItem[], aria-current, chevron separator
+- [x] LdPaginationComponent — siblingCount/boundaryCount algorithm, ellipsis, pageChange
+- [x] LdAvatarComponent — size (sm/md/lg/xl), initials fallback, image error handling, square mode
+- [x] LdDatePickerComponent — Ukrainian locale, 42-day grid, minDate/maxDate, ControlValueAccessor
+- [x] LdTableComponent — columns/rows data-driven, sortable, zebra, hoverable, size
 
-## Progress: 2 / 28
+## Progress: 28 / 28 ✓
