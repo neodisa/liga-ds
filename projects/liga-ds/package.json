@@ -1,0 +1,36 @@
+{
+  "name": "@neodisa/liga-ds",
+  "version": "0.2.0",
+  "description": "Liga DS — accessible Angular design system (Liga360 / United brands).",
+  "license": "MIT",
+  "keywords": [
+    "design-system",
+    "angular",
+    "components",
+    "ui",
+    "accessibility",
+    "design-tokens",
+    "ligazakon"
+  ],
+  "author": "LigaZakon",
+  "homepage": "https://github.com/neodisa/liga-ds#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neodisa/liga-ds.git"
+  },
+  "bugs": {
+    "url": "https://github.com/neodisa/liga-ds/issues"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "peerDependencies": {
+    "@angular/core": ">=20",
+    "@angular/common": ">=20",
+    "@angular/cdk": ">=20.2"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ]
+}

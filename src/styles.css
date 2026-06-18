@@ -1,9 +1,0 @@
-/* =====================================================================
-   Liga DS — the single stylesheet consumers import:  import 'liga-ds/styles.css'
-   Layer order: generated tokens -> typography -> reset. Component CSS Modules
-   are bundled after this at build time.
-   ===================================================================== */
-
-@import './tokens/tokens.generated.css';
-@import './tokens/typography.css';
-@import './tokens/reset.css';

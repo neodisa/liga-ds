@@ -1,89 +1,36 @@
 {
-  "name": "@neodisa/liga-ds",
+  "name": "liga-ds-workspace",
   "version": "0.2.0",
-  "description": "Liga DS — a universal, accessible, production-grade React design system (Liga360 / United brands).",
-  "type": "module",
+  "private": true,
+  "description": "Liga DS — Angular design system workspace",
   "license": "MIT",
-  "keywords": [
-    "design-system",
-    "react",
-    "components",
-    "ui",
-    "accessibility",
-    "design-tokens",
-    "ligazakon"
-  ],
   "author": "LigaZakon",
-  "homepage": "https://github.com/neodisa/liga-ds#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/neodisa/liga-ds.git"
-  },
-  "bugs": {
-    "url": "https://github.com/neodisa/liga-ds/issues"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "restricted"
-  },
   "engines": {
     "node": ">=18"
   },
-  "sideEffects": [
-    "**/*.css"
-  ],
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/liga-ds.cjs",
-  "module": "./dist/liga-ds.js",
-  "types": "./dist/src/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/src/index.d.ts",
-      "import": "./dist/liga-ds.js",
-      "require": "./dist/liga-ds.cjs"
-    },
-    "./styles.css": "./dist/liga-ds.css",
-    "./icons": {
-      "types": "./dist/icons/src/index.d.ts",
-      "import": "./dist/icons.js",
-      "require": "./dist/icons.cjs"
-    }
-  },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "build:playground": "vite build --config vite.playground.config.ts",
-    "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.build.json",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
-  },
-  "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^14.6.1",
-    "@types/node": "^25.9.1",
-    "@types/react": "^19.2.16",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.2",
-    "axe-core": "^4.12.0",
-    "jsdom": "^29.1.1",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "typescript": "^6.0.3",
-    "vite": "^8.0.16",
-    "vite-plugin-dts": "^5.0.2",
-    "vitest": "^4.1.8"
+    "build": "ng build liga-ds",
+    "start": "ng serve playground",
+    "test": "ng test liga-ds",
+    "typecheck": "tsc --noEmit -p projects/liga-ds/tsconfig.lib.json"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.27.19"
+    "@angular/animations": "20.3.15",
+    "@angular/cdk": "^20.2.0",
+    "@angular/common": "20.3.15",
+    "@angular/compiler": "20.3.15",
+    "@angular/core": "20.3.15",
+    "@angular/forms": "20.3.15",
+    "@angular/platform-browser": "20.3.15",
+    "rxjs": "~7.8.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/cli": "20.3.15",
+    "@angular/compiler-cli": "20.3.15",
+    "@angular-devkit/build-angular": "20.3.15",
+    "@types/node": "^22.0.0",
+    "ng-packagr": "^20.3.0",
+    "typescript": "~5.8.0"
   }
 }

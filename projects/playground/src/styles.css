@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: var(--space-400, 32px);
+  background: var(--cntnr-bg-other-page-background, #f4f4f8);
+  font-family: var(--liga-font-family, 'Lato', sans-serif);
+}
+
+section {
+  max-width: 800px;
+  margin-bottom: var(--space-800, 64px);
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-default);
+  margin: 0 0 var(--space-300, 24px);
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-subtlest);
+  margin: var(--space-200, 16px) 0 var(--space-100, 8px);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-200, 16px);
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200, 16px);
+}
