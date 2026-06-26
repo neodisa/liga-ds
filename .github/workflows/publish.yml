@@ -1,8 +1,8 @@
 name: Publish package
 
-# Publishes @neodisa/liga-ds to GitHub Packages when a version tag is pushed.
+# Publishes @neodisa/liga-ds (Angular library) to GitHub Packages when a version tag is pushed.
 # Uses the workflow's built-in GITHUB_TOKEN — no personal tokens or secrets needed.
-#   git tag v0.1.0 && git push origin v0.1.0
+#   git tag v1.0.0 && git push origin v1.0.0
 on:
   push:
     tags:
@@ -27,9 +27,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # npm publish runs prepublishOnly (typecheck + test + build) before uploading.
-      # files:["dist"] means only the built output is published — never the source.
+      # Production build → partial compilation → publishable ng-packagr output
+      # at projects/liga-ds/dist (only the built package, never the source).
+      - name: Build library (production)
+        run: npx ng build liga-ds --configuration production
+
       - name: Publish
         run: npm publish
+        working-directory: projects/liga-ds/dist
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

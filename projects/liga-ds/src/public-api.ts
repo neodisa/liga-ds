@@ -43,3 +43,21 @@ export { LdModalComponent, LdModalContentComponent } from './lib/modal/modal.com
 export { LdSelectComponent, type SelectOption, type SelectSize } from './lib/select/select.component';
 export { LdMenuComponent, type MenuItem, type MenuPlacement } from './lib/menu/menu.component';
 export { LdDatePickerComponent } from './lib/date-picker/date-picker.component';
+
+// Tokens — typed references to the Figma token system (CSS variables)
+export {
+  space,
+  radius,
+  cssVar,
+  typographyClass,
+  SPACE_SCALE,
+  RADIUS_SCALE,
+  ELEVATION_SCALE,
+  TYPOGRAPHY_VARIANTS,
+  type Brand,
+  type Space,
+  type Radius,
+  type Elevation,
+  type Tone,
+  type TypographyVariant,
+} from './tokens/tokens';
