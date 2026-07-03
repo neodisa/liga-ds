@@ -72,6 +72,24 @@ import { LdDatePickerComponent } from '../../../liga-ds/src/lib/date-picker/date
     </section>
 
     <section>
+      <h3>Typography</h3>
+      <p class="typo-legend">40 стилів шкали H100–H800, відрисовані реальними класами <code>.liga-typo-*</code>. <span class="typo-flag">⚠</span> — вага 500/600, якої немає у веб-Lato (рендериться як 400/700). <span class="typo-extra">+</span> — клас понад 26 published-стилів Figma.</p>
+      @for (group of typoScale; track group.step) {
+        <div class="typo-step">{{ group.step }}</div>
+        @for (s of group.items; track s.cls) {
+          <div class="typo-row">
+            <span class="typo-sample liga-typo-{{ s.cls }}">Зразок тексту</span>
+            <span class="typo-meta">
+              @if (s.faux) { <span class="typo-flag" title="Вага 500/600 відсутня у веб-Lato → рендериться як 400/700">⚠</span> }
+              @if (s.extra) { <span class="typo-extra" title="Клас понад 26 published-стилів Figma">+</span> }
+              <code class="typo-spec">{{ s.cls }} · {{ s.spec }}</code>
+            </span>
+          </div>
+        }
+      }
+    </section>
+
+    <section>
       <h3>Spinner</h3>
       <div class="row">
         <ld-spinner size="sm" />
@@ -321,6 +339,67 @@ export class AppComponent {
   selectVal: string | null = null;
   menuSelected = '';
   dateVal: Date | null = null;
+
+  typoScale: Array<{ step: string; items: Array<{ cls: string; spec: string; faux?: boolean; extra?: boolean }> }> = [
+    { step: 'H100 · 11px', items: [
+      { cls: 'h100-regular', spec: '400 · 14/.23' },
+      { cls: 'h100-medium', spec: '500 · 14/.23', faux: true },
+      { cls: 'h100-semibold', spec: '600 · 14/.18', faux: true },
+      { cls: 'h100-caps', spec: '500 · 11/.40', faux: true },
+    ] },
+    { step: 'H200 · 12px', items: [
+      { cls: 'h200-regular', spec: '400 · 15/.25' },
+      { cls: 'h200-medium', spec: '500 · 15/.25', faux: true },
+      { cls: 'h200-semibold', spec: '600 · 15/.25', faux: true },
+      { cls: 'h200-caps', spec: '500 · 15/.25', faux: true },
+    ] },
+    { step: 'H300 · 14px · основний текст', items: [
+      { cls: 'h300-regular', spec: '400 · 16/.29' },
+      { cls: 'h300-regular-paragraph', spec: '400 · 20/.29' },
+      { cls: 'h300-medium', spec: '500 · 16/.15', faux: true },
+      { cls: 'h300-bold', spec: '700 · 16/.15' },
+      { cls: 'h300-caps', spec: '400 · 20/.29' },
+      { cls: 'h300-cta', spec: '700 · 20/.38' },
+    ] },
+    { step: 'H400 · 16px', items: [
+      { cls: 'h400-regular', spec: '400 · 20/.33' },
+      { cls: 'h400-regular-paragraph', spec: '400 · 24/.33' },
+      { cls: 'h400-medium', spec: '500 · 20/.13', faux: true },
+      { cls: 'h400-bold', spec: '700 · 20/.13' },
+      { cls: 'h400-caps', spec: '400 · 24/.40', extra: true },
+    ] },
+    { step: 'H450 · 18→16px', items: [
+      { cls: 'h450-regular', spec: '400 · 22/.35', extra: true },
+      { cls: 'h450-medium', spec: '500 · 22/.10', faux: true },
+      { cls: 'h450-bold', spec: '700 · 22/.10' },
+      { cls: 'h450-caps', spec: '400 · 24/.40', extra: true },
+    ] },
+    { step: 'H500 · 20→18px', items: [
+      { cls: 'h500-regular', spec: '400 · 24/.38', extra: true },
+      { cls: 'h500-medium', spec: '500 · 24/.06', faux: true },
+      { cls: 'h500-bold', spec: '700 · 24/.06' },
+      { cls: 'h500-caps', spec: '700 · 24/.38', extra: true },
+    ] },
+    { step: 'H600 · 24→20px', items: [
+      { cls: 'h600-regular', spec: '400 · 28/.42', extra: true },
+      { cls: 'h600-medium', spec: '500 · 28/-.02', faux: true },
+      { cls: 'h600-bold', spec: '700 · 28/-.02' },
+      { cls: 'h600-caps', spec: '400 · 28/.42', extra: true },
+    ] },
+    { step: 'H700 · 29→24px', items: [
+      { cls: 'h700-regular', spec: '400 · 32/.38', extra: true },
+      { cls: 'h700-medium', spec: '500 · 32/.38', faux: true, extra: true },
+      { cls: 'h700-semibold', spec: '600 · 32/-.14', faux: true },
+      { cls: 'h700-bold', spec: '700 · 32/-.14', extra: true },
+      { cls: 'h700-caps', spec: '400 · 32/-.14', extra: true },
+    ] },
+    { step: 'H800 · 35→29px', items: [
+      { cls: 'h800-regular', spec: '400 · 38/.04', extra: true },
+      { cls: 'h800-medium', spec: '500 · 38/.04', faux: true },
+      { cls: 'h800-bold', spec: '700 · 38/-.31', extra: true },
+      { cls: 'h800-caps', spec: '400 · 38/.04', extra: true },
+    ] },
+  ];
 
   breadcrumbItems = [
     { label: 'Головна', href: '#' },
