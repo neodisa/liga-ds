@@ -62,6 +62,13 @@ export class LdTabPanelComponent {
       font-family: var(--liga-font-family);
     }
     .ld-tabs__list[data-variant='underline'] { gap: var(--space-100); border-bottom: 1px solid var(--divider-divider); }
+    /* pill group: Figma Tabs wraps the pills in a rounded bordered container (corner=infinity, 1px border, 4px padding) */
+    .ld-tabs__list[data-variant='pill'] {
+      padding: var(--space-050);
+      border: 1px solid var(--cntnr-border-default);
+      border-radius: var(--cntnr-corner-infinity);
+      background-color: var(--cntnr-bg-transperent-default);
+    }
     .ld-tabs__list[data-orientation='vertical'] { flex-direction: column; align-items: stretch; }
     .ld-tabs__list[data-orientation='vertical'][data-variant='underline'] { border-bottom: none; border-inline-start: 1px solid var(--divider-divider); }
 

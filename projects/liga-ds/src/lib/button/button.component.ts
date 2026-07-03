@@ -158,10 +158,10 @@ export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
     .ld-button--primary[data-selected]:hover:not(:disabled) { --_bg: var(--btn-bg-primary-hover-for-active); }
     .ld-button--primary:disabled { --_bg: var(--btn-bg-primary-disable); --_fg: var(--text-disabled); }
 
-    /* secondary */
+    /* secondary — Figma: Type=Primary, Fill=Outline → text is text/default (dark), not accent */
     .ld-button--secondary {
       --_bg: var(--btn-bg-secondary-default);
-      --_fg: var(--text-accent);
+      --_fg: var(--text-default);
       --_bd: var(--btn-bg-secondary-border-default);
     }
     .ld-button--secondary:hover:not(:disabled):not([data-selected]) {
