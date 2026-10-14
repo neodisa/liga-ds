@@ -211,7 +211,7 @@ ld-ii--bg-warning ld-ii--full">`, `getComputedStyle(...).backgroundColor` →
 | Figma «Company check – United», кадр No Data виджета НПА | `H400/Medium` — подтверждено дизайнером (LIGA-11709, 13.10) |
 
 **Нужно решение владельца ДС** (М. Яценко): размер заголовка EmptyState — `H400/Medium`; затем набор
-(`EmptyState.css`, `docs/drift/empty-state.md` п. 5). Issue: `gitlab.ligazakon.net/YatsenkoM/storybook` — см. PR.
+(`EmptyState.css`, `docs/drift/empty-state.md` п. 5). Issue: `gitlab.ligazakon.net/YatsenkoM/storybook` #4.
 
 ---
 
