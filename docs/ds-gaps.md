@@ -195,6 +195,31 @@ ld-ii--bg-warning ld-ii--full">`, `getComputedStyle(...).backgroundColor` →
 
 ---
 
+### B12. 🟡 Dropdown: цвет плейсхолдера — набор `text/subtlest`, Figma `text/default`
+
+**Что:** в пустом поле Dropdown подсказка (название фильтра / «Select item») в наборе серая — `text/subtlest`;
+в Figma — `text/default`, как и выбранное значение. На заливке состояния Active (`cntnr/bg/Primary/active`)
+серая подсказка выглядит «засвеченной». Дизайнер подтверждает: должно быть как в Figma (пин L#8 в макете
+LIGA-11713, 14.10.2026, со скрином состояний Dropdown из ДС).
+
+**Источники:**
+
+| источник | цвет подсказки |
+| --- | --- |
+| Figma `❖ UI LIBRARY v1.4`, Dropdown (все состояния, «Select item») | `text/default` |
+| прод `compliance-dropdown` (mat-select) | собственного цвета нет — серый дефолт Material |
+| набор `proto.css` `.dropdown__value--placeholder` (storybook @ 3f70acb) | `text/subtlest` — `docs/drift/dropdown.md` #17, помечено ❓ |
+
+Заливка и рамка Active (`cntnr/bg/Primary/active` + `cntnr/border/selected`) **не оспариваются** — совпадают
+в Figma, проде и наборе (сначала пин прочитали как претензию к заливке; варианты без неё в макете отклонены).
+
+**Где кусало:** LIGA-11713 («Згадки в НПА» физлиц), фильтры Рік / Тип / Видавник.
+
+**Нужно решение владельца ДС** (М. Яценко): закрыть ❓ #17 в пользу Figma, затем набор и прод
+(плейсхолдер mat-select). Issue: `gitlab.ligazakon.net/YatsenkoM/storybook` #2. В макете уже `text/default`.
+
+---
+
 ## C. Иконки
 
 ### C1. 🔴 928 файлов вместо 464 — цвет запечён в SVG
