@@ -195,6 +195,26 @@ ld-ii--bg-warning ld-ii--full">`, `getComputedStyle(...).backgroundColor` →
 
 ---
 
+### B15. 🟡 `EmptyState`: заголовок H600 Medium слишком крупный
+
+**Что:** заголовок пустого состояния в наборе — `H600/Medium` (`text/subtle`). Дизайнер: шрифт слишком большой,
+нужен меньше (пины L#24, L#25 в макете LIGA-11713, 14.10.2026: «За обраними фільтрами документів немає»,
+«Даних не знайдено»). В макете уже `H400/Medium`.
+
+**Откуда H600 — и почему ему не на что опереться** (по `docs/drift/empty-state.md` библиотеки, п. 5):
+
+| источник | заголовок пустого состояния |
+| --- | --- |
+| Figma `❖ UI LIBRARY v1.4`, компонент EmptyState | слоя заголовка нет |
+| прод SCSS (`.no_data_image label`) | задумано `text/subtle` + `H600/Medium`, но селектор не совпадает с DOM — **мёртвый CSS**, в проде не рендерится |
+| набор `proto.css` `.empty-state__title` (storybook @ 3f70acb) | `H600/Medium` — реализовано «по замыслу» мёртвого CSS |
+| Figma «Company check – United», кадр No Data виджета НПА | `H400/Medium` — подтверждено дизайнером (LIGA-11709, 13.10) |
+
+**Нужно решение владельца ДС** (М. Яценко): размер заголовка EmptyState — `H400/Medium`; затем набор
+(`EmptyState.css`, `docs/drift/empty-state.md` п. 5). Issue: `gitlab.ligazakon.net/YatsenkoM/storybook` — см. PR.
+
+---
+
 ## C. Иконки
 
 ### C1. 🔴 928 файлов вместо 464 — цвет запечён в SVG
