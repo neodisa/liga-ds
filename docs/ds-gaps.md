@@ -195,30 +195,28 @@ ld-ii--bg-warning ld-ii--full">`, `getComputedStyle(...).backgroundColor` →
 
 ---
 
-### B12. 🟡 Dropdown: заливка открытого состояния оспаривается
+### B12. 🟡 Dropdown: цвет плейсхолдера — набор `text/subtlest`, Figma `text/default`
 
-**Что:** открытое (сфокусированное) поле Dropdown заливается `cntnr/bg/Primary/active` (United `#B7D1FF`)
-с рамкой `cntnr/border/selected` (`#025CFF`). Дизайнеру не нравится «отсвет» заголовка открытого фильтра —
-просит пересмотреть в ДС, как это должно выглядеть (пин в макете LIGA-11713, 14.10.2026).
+**Что:** в пустом поле Dropdown подсказка (название фильтра / «Select item») в наборе серая — `text/subtlest`;
+в Figma — `text/default`, как и выбранное значение. На заливке состояния Active (`cntnr/bg/Primary/active`)
+серая подсказка выглядит «засвеченной». Дизайнер подтверждает: должно быть как в Figma (пин L#8 в макете
+LIGA-11713, 14.10.2026, со скрином состояний Dropdown из ДС).
 
-**Доказательство** — значение задано самой ДС и совпадает в источниках, то есть это не расхождение
-прод↔Figma, а решение ДС, которое оспаривается:
+**Источники:**
 
-| источник | значение открытого состояния |
+| источник | цвет подсказки |
 | --- | --- |
-| Figma `❖ UI LIBRARY v1.4`, Dropdown `State=Active` — по `docs/drift/dropdown.md` библиотеки | фон `cntnr/bg/Primary/active`, рамка `cntnr/border/selected`, иконка `icon/active` |
-| прод `compliance-dropdown` (mat-select) | `.mdc-text-field--outlined.mat-focused` → `$cntnr-bg-primary-active`; `.mat-form-field-flex.mat-focused` → `$cntnr-bg-primary-click` (два правила, в United оба токена = `#B7D1FF`) |
-| набор `proto.css` `.dropdown__trigger--open` (storybook @ 3f70acb) | `--dropdown-bg-current: var(--cntnr-bg-primary-active)`, `--dropdown-border-current: var(--cntnr-border-selected)` |
+| Figma `❖ UI LIBRARY v1.4`, Dropdown (все состояния, «Select item») | `text/default` |
+| прод `compliance-dropdown` (mat-select) | собственного цвета нет — серый дефолт Material |
+| набор `proto.css` `.dropdown__value--placeholder` (storybook @ 3f70acb) | `text/subtlest` — `docs/drift/dropdown.md` #17, помечено ❓ |
 
-**Варианты для сравнения** — макет LIGA-11713 Іт.2, папка «Відкритий фільтр — варіанти (пін L#8)»:
-V1 — как в ДС; V2 — только рамка (фон как у закрытого поля, `--dropdown-bg-default`);
-V3 — тон наведения `cntnr/bg/Primary/hover` (`#DBE8FF`). Рамка и иконка во всех — как в ДС.
+Заливка и рамка Active (`cntnr/bg/Primary/active` + `cntnr/border/selected`) **не оспариваются** — совпадают
+в Figma, проде и наборе (сначала пин прочитали как претензию к заливке; варианты без неё в макете отклонены).
 
 **Где кусало:** LIGA-11713 («Згадки в НПА» физлиц), фильтры Рік / Тип / Видавник.
 
-**Нужно решение владельца ДС** (М. Яценко): вид открытого состояния Dropdown; затем Figma Dropdown →
-прод `compliance-dropdown` → набор. Issue в библиотеке — TODO (заводится после согласования текста).
-До решения в макетах остаётся значение ДС.
+**Нужно решение владельца ДС** (М. Яценко): закрыть ❓ #17 в пользу Figma, затем набор и прод
+(плейсхолдер mat-select). Issue: `gitlab.ligazakon.net/YatsenkoM/storybook` #2. В макете уже `text/default`.
 
 ---
 
